@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Number guessing game</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+      .lastResult {
+        color: white;
+        padding: 3px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Number guessing game</h1>
+
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+
+    <div class="form">
+      <label for="guessField">Enter a guess: </label><input type="text" id="guessField" class="guessField">
+      <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <p class="lastResult"></p>
+      <p class="lowOrHi"></p>
+    </div>
+
+    <script>
+      console.log("Hallo!:)");
+      let randomNumber = Math.floor(Math.random() * 100) + 1;   //Variablennamen = randomNumber; 
+      /*
+      Aufschlüsslung der Zeile davor:
+      let randomNumber;                     //Variable anlegen
+      const rawRandom;
+      rawRandom = Math.random();            //Zufallszahl wird angelegt, z.B. 0,4543653
+      Math.floor(rawRandom * 100) + 1;      //Math.floor schneidet die Nachkommastellen ab (von Random Zahl); *100 da vorher Kommazahl
+      console.log("rR: ", rawRandom);       //+1 damit die 0 ausgeschlossen wird
+      */
+      console.log("Zufallszahl: ", randomNumber);        //Variable auf Konsole ausgeben
+                                                                    //const=feste Variable, die nicht verändert wird
+      const guesses = document.querySelector('.guesses');           //Objekt vom Browser; querySelector=Selektor=hier: alle Elemente im DOM, die Klasse guesses haben; querySelector wählt nur das erste ensprechende Element aus
+      // consol.log("Guesses element: ", guesses);                  //Anzeige in Konsole, wo das Element auf der Website angezeigt wird (Maus drüber fahren)
+      const lastResult = document.querySelector('.lastResult');     
+      const lowOrHi = document.querySelector('.lowOrHi');
+      
+      const guessSubmit = document.querySelector('.guessSubmit');
+      const guessField = document.querySelector('.guessField');     //diese Konstanten/Variablen werden gesetzt, dass diese nicht bei jedem Aufruf neu im DOM gesucht werden müssen
+      
+      let guessCount = 1;       //veränderbare Variablen, Zähler für Versuche
+      let resetButton;
+
+      //Funktion, die Vorschlag mit RandomNumber abgleicht
+      function checkGuess() {
+        let userGuess = Number(guessField.value);       //Wert vom Text-Eingabefeld guessField; hier wird geprüft, ob String (Ergebnis des Eingabefeldes) eine Zahl ist (geht weiter) oder nicht (NaN)
+        if (guessCount === 1) {                         //=== Wert ist gleich und Typ auch gleich
+          guesses.textContent = 'Previous guesses: ';   //textContent wird der String "Previous guesses" zugewiesen (1. Element wird in Text umgewandelt)
+        }
+        guesses.textContent += userGuess + ' ';         //Verkettung  textContent mit userGuesses(geschätzte Zahlen) mit Leerzeichen dazwischen
+        
+        if (userGuess === randomNumber) {               //3 Fälle werden beschrieben: richtiger Guess, Maxversuche erreicht oder falscher Guess
+          lastResult.textContent = 'Congratulations! You got it right!';
+          lastResult.style.backgroundColor = 'green';
+          lowOrHi.textContent = '';                     //leere Zeichenkette setzen
+          setGameOver();
+        } else if (guessCount === 10) {
+          lastResult.textContent = '!!!GAME OVER!!!';
+          lowOrHi.textContent = '';
+          setGameOver();
+        } else {
+          lastResult.textContent = 'Wrong!';
+          lastResult.style.backgroundColor = 'red';
+          if(userGuess < randomNumber) {
+            lowOrHi.textContent = 'Last guess was too low!' ;
+          } else if(userGuess > randomNumber) {
+            lowOrHi.textContent = 'Last guess was too high!';
+          }
+        }
+        guessCount++;           //Zähler für Versuche wird erhöht
+        guessField.value = '';  //Wert wird gelöscht
+        guessField.focus();     //Methode aufrufen: Eingabefeld bekommt Fokus, d.h. Curser wird direkt in Feld gesetzt um neue Zahl einzutippen
+      }
+
+/*      function enterPressed(event){         //Funktion für Enter-Taste als Eingabebestätigung; Parameter ist event
+          if(event.keyCode === 13){         //Keycode der Enter-Taste ist 13
+          console.log("Event: ", event);
+          checkGuess();
+          }
+      }*/
+
+      guessSubmit.addEventListener('click', checkGuess);        //Funktion checkGuess wird aufgerufen (Callback wird registriert); Event wird Button
+                                                                //zugeordnet: bei Klick auf Submit wird das Event gestartet aka Funktion aufgerufen
+//      guessField.addEventListener('keyup', enterPressed);     //Entertaste als Eingabe
+
+      function setGameOver() {                              //
+        guessField.disabled = true;                         //keine Eingabe mehr möglich in Eingabefeld
+        guessSubmit.disabled = true;                        //kein Klicken mehr möglich auf Button
+        resetButton = document.createElement('button');     //Reset-Button wird aktiviert bzw. sichtbar gemacht; neues Element wird erzeugt (createElement)
+        resetButton.textContent = 'Start new game';         //Inhalt vom Reset-Button
+        document.body.appendChild(resetButton);             //appendChild hängt den Button am Ende der Absätze an
+        resetButton.addEventListener('click', resetGame);   //Event einfügen und Funktion aufrufen
+      }
+
+      function resetGame() {
+        guessCount = 1;                                                     //Zähler wieder auf 1
+        const resetParas = document.querySelectorAll('.resultParas p');     //SelektorAll sucht alle passenden Elemente, wird als Array ausgegeben --> alle p-Elemente, die sich in der Klasse Paras befinden
+        for(let i = 0 ; i < resetParas.length ; i++) {                      //Laufvariable i, Schleife läuft so lange durch, bis i die Länge der Arrays erreicht hat
+          resetParas[i].textContent = '';                                   //Inhalt zurücksetzen
+        }
+
+        resetButton.parentNode.removeChild(resetButton);        //Reset-Button wird wieder entfernt
+        
+        guessField.disabled = false;                            //Reset-Bedingungen werden wieder zurückgesetzt
+        guessSubmit.disabled = false;
+        guessField.value = '';                                  //GuessField leeren
+        guessField.focus();                                     //Curser wieder in das Eingabefeld setzen
+        
+        lastResult.style.backgroundColor = 'white';     
+        randomNumber = Math.floor(Math.random() * 100) + 1;     //Programm läuft einmal komplett durch, daher muss ein weiteres Event generiert werden, damit Spiel wieder von vorne beginnen kann
+      }
+    </script>
+  </body>
+</html>
