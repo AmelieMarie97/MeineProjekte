@@ -25,6 +25,7 @@ document.getElementsByTagName("footer")[0].innerHTML = "Fußzeile";
 var navigation = document.getElementsByTagName("nav")[0];
 navigation.removeChild(navigation.firstChild);
 document.getElementsByTagName("nav")[0].innerHTML = "Navigationsleiste: <ul><li>eins</li><li>zwei</li><li>drei</li></ul>";
+    //ist in CSS definiert und sieht daher anders aus als normalerweise
 /*var myNav = document.createElement("p");
 var myText = document.createTextNode("Navigationsleiste");
 myNav.appendChild(myText);
