@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<!-- Image source: https://commons.wikimedia.org/wiki/File:Chuck_Norris_cropped.jpg -->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DOM Manipulation</title>
+    <link rel="stylesheet" href="20191202_ExampleMarx.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <button id="b1">1</button>
+        <button id="b2">2</button>
+        <button id="b3">3</button>
+        <button id="b4">4</button>
+        <button id="b5">5</button>
+        <button id="b6">6</button>
+    </header>
+
+    <main>
+
+        <div class="image"></div>
+
+    </main>
+
+    <footer>
+        <div></div>
+    </footer>
+</body>
+
+<script>
+
+    var colors = ['indianred', 'hotpink', 'darkorange', 'fuchsia', 'blueviolet', 'slateblue'];
+
+    function handleHeaderClick(event) {
+
+        switch (event.target.id) {
+
+            case 'b1':
+                createDivs();
+                break;
+
+            case 'b2':
+                killDiv();
+                break;
+
+            case 'b6':
+                showAbsolutelyTrueChuckNorrisFacts();
+                break;
+        }
+
+    }
+    function handleMainClick(event) {
+
+        if (event.target.nodeName !== "DIV") return;
+
+        let mainElement = document.querySelector('main'),
+            divElements = Array.from(mainElement.querySelectorAll('div')),
+            targetIndex = divElements.indexOf(event.target),
+            rowHeadElement = divElements[Math.floor(targetIndex / 3) * 3];
+
+        mainElement.insertBefore(event.target, rowHeadElement);
+    }
+
+    function killDiv() {
+
+        let mainElement = document.querySelector('main'),
+            divElements = mainElement.querySelectorAll('div');
+
+        if (divElements.length == 0) return;
+
+        divElements[Math.floor(Math.random() * divElements.length)].remove();
+
+        let footerDivElement = document.querySelector('footer div');
+
+        footerDivElement.innerHTML = "Removed element.";
+
+        footerDivElement.classList.remove("fadeOut")
+
+        // Delay class setting and allow the element to be rendered visible.
+        setTimeout(() => { footerDivElement.classList.add("fadeOut") }, 2000);
+    }
+
+    function showAbsolutelyTrueChuckNorrisFacts() {
+
+        let mainElement = document.querySelector('main');
+
+        mainElement.innerHTML = '';
+
+        mainElement.style.gridTemplateColumns = '1fr 1fr 1fr';
+        mainElement.style.gridTemplateRows = '1fr minmax(0, 1fr) 1fr';
+
+        let factDivElement = document.createElement('div');
+        factDivElement.classList.add('norrisFact');
+        factDivElement.style.background = colors[Math.floor(Math.random() * 6)];
+
+        mainElement.appendChild(factDivElement);
+
+        fetch('https://api.chucknorris.io/jokes/random')
+            .then(resp => resp.json())
+            .then(function (data) {
+
+                factDivElement.innerHTML = data.value;
+            });
+
+        let pictureDivElement = document.createElement('div');
+        pictureDivElement.classList.add('norrisImage');
+
+        pictureDivElement.append(document.createElement('img'));
+
+        mainElement.appendChild(pictureDivElement);
+    }
+
+    function createDivs() {
+
+        let mainElement = document.querySelector('main');
+
+        mainElement.innerHTML = '';
+
+        mainElement.style.gridTemplateColumns = '1fr 1fr 1fr';
+        mainElement.style.gridTemplateRows = '1fr 1fr 1fr';
+
+        for (let i = 0; i < 9; i++) {
+
+            let factDivElement = document.createElement('div');
+
+            factDivElement.classList.add('panel');
+            factDivElement.style.background = colors[Math.floor(Math.random() * 6)];
+            factDivElement.innerHTML = Math.floor(Math.random() * 10 + 1);
+
+            mainElement.appendChild(factDivElement);
+        }
+
+        mainElement.addEventListener('click', handleMainClick);
+    }
+
+    document.querySelector('header').addEventListener('click', handleHeaderClick);
+</script>
+
+</html>
