@@ -4,23 +4,23 @@ body {
     font-size: 2em;
     font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
     display: grid;
-    grid-template-areas: "header" "main" "footer";
-    grid-template-columns: auto;
+    grid-template-areas: "header header header" "nav main side" "footer footer footer";
+    grid-template-columns: 12% auto 12%;
     grid-template-rows: 15% auto 8%;  
     height: 100vh;
 }
 
 header {
     grid-area: header;
-    background: #fdff80;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #9b8834a2;
+    background: rgb(220, 220, 220);         /* 	#BABABA */
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(55, 55, 55);
 }
 
 main {
     grid-area: main;
-    background: #ffffff;
+    background: rgb(252, 252, 252);
     padding: 0px;
     display: grid;
     grid-template-areas: "area1 area2 area3" "area4 area5 area6";
@@ -28,21 +28,22 @@ main {
     grid-template-rows: 1fr 1fr;
 }
 
-footer {
-    grid-area: footer;
-    background: #ff8086;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #9b344aa2;
+nav {
+    grid-area: nav;
+    background: rgb(252, 252, 252);         /* 	#BABABA */
 }
 
-div.item {
-    background: #f480ff;
-    padding: 20px;
-    margin: 20px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #5c204fa2;
+aside {
+    grid-area: side;
+    background: rgb(252, 252, 252);
+}
+
+footer {
+    grid-area: footer;
+    background: rgb(220, 220, 220);         /* 	#BABABA */
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: rgb(55, 55, 55);
 }
 
 div.button {
@@ -53,48 +54,56 @@ div.button {
 
 div.area1 {
     grid-area: area1;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 div.area2 {
     grid-area: area2;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 div.area3 {
     grid-area: area3;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 div.area4 {
     grid-area: area4;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 div.area5 {
     grid-area: area5;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 div.area6 {
     grid-area: area6;
-    margin: 10px;
+    margin: 5px;
     padding: 20px;
-}
-
-div.exercise {
-    background: #80dbff;
-    padding: 20px;
-    margin: 20px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #205c5ca2;
-    font-size: 0.5em;
+    text-align: center;
+    background: rgb(150, 150, 150);
+    border-radius: 1.5em;
 }
 
 nav li {

@@ -1,5 +1,3 @@
-//Event Button 1 drücken
-
 const pushButton1 = document.querySelector('.pushButton1');
 
 function Button1() {
