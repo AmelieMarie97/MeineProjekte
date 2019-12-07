@@ -30,7 +30,7 @@ main {
 
 nav {
     grid-area: nav;
-    background: rgb(252, 252, 252);         /* 	#BABABA */
+    background: rgb(252, 252, 252);
 }
 
 aside {
@@ -40,7 +40,7 @@ aside {
 
 footer {
     grid-area: footer;
-    background: rgb(220, 220, 220);         /* 	#BABABA */
+    background: rgb(220, 220, 220);
     border-top-width: 5px;
     border-top-style: solid;
     border-top-color: rgb(55, 55, 55);

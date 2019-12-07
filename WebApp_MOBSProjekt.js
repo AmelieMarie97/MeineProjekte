@@ -45,7 +45,6 @@ function Button1() {
 pushButton1.addEventListener('click', Button1);
 
 
-
 /*
 //Elemente mit Class "Item" ansprechen und mit neuem Text überschreiben
 document.getElementsByClassName("item")[0].innerHTML = "Hello World!";
