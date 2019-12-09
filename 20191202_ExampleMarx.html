@@ -31,6 +31,10 @@
     <footer>
         <div></div>
     </footer>
+
+    <template class="test1">
+        <div class="status"> I am the new div</div>
+    </template>
 </body>
 
 <script>
@@ -39,14 +43,20 @@
 
     function handleHeaderClick(event) {
 
-        switch (event.target.id) {
+        console.log("Event: ", event);  //Event anzeigen lassen
 
+        switch (event.target.id) {      //Event-Handling: je nach Button wird Funktion aufgerufen
+                                        //man kann default case angeben, wenn z.B. random geklickt wird
             case 'b1':
                 createDivs();
                 break;
 
             case 'b2':
                 killDiv();
+                break;
+            
+            case 'b3':
+                showPage();
                 break;
 
             case 'b6':
@@ -55,16 +65,27 @@
         }
 
     }
+
+    function showPage(){
+        //Suche neuen Inhalt im Template
+        //Klone neues Element
+        let newPage = document.querySelector("template.windows").clone();
+        console.log("New Page: ", newPage.content);
+       
+        //Leere Main
+        //Füge neues Element in main ein
+    }
+
     function handleMainClick(event) {
 
-        if (event.target.nodeName !== "DIV") return;
+        if (event.target.nodeName !== "DIV") return;        //Wenn Element-Typ ein Div ist, dann return
 
-        let mainElement = document.querySelector('main'),
-            divElements = Array.from(mainElement.querySelectorAll('div')),
-            targetIndex = divElements.indexOf(event.target),
-            rowHeadElement = divElements[Math.floor(targetIndex / 3) * 3];
+        let mainElement = document.querySelector('main'),                       //neue Elemente suchen
+            divElements = Array.from(mainElement.querySelectorAll('div')),      //Teil des DOMS wird durchsucht, Div Knoten als Ergebnis, Node-List kein Array an sich
+            targetIndex = divElements.indexOf(event.target),                    //Index von geklicktem Element wird gesucht
+            rowHeadElement = divElements[Math.floor(targetIndex / 3) * 3];      //Index wird umgerechnet, damit Position ganz links erreicht wird
 
-        mainElement.insertBefore(event.target, rowHeadElement);
+        mainElement.insertBefore(event.target, rowHeadElement);                 //Target wird verschoben an neue Stelle
     }
 
     function killDiv() {
@@ -74,13 +95,13 @@
 
         if (divElements.length == 0) return;
 
-        divElements[Math.floor(Math.random() * divElements.length)].remove();
+        divElements[Math.floor(Math.random() * divElements.length)].remove();   //zufääliges Element wird entfernt
 
         let footerDivElement = document.querySelector('footer div');
 
         footerDivElement.innerHTML = "Removed element.";
 
-        footerDivElement.classList.remove("fadeOut")
+        footerDivElement.classList.remove("fadeOut");
 
         // Delay class setting and allow the element to be rendered visible.
         setTimeout(() => { footerDivElement.classList.add("fadeOut") }, 2000);
@@ -101,7 +122,7 @@
 
         mainElement.appendChild(factDivElement);
 
-        fetch('https://api.chucknorris.io/jokes/random')
+        fetch('https://api.chucknorris.io/jokes/random')        
             .then(resp => resp.json())
             .then(function (data) {
 
@@ -120,17 +141,17 @@
 
         let mainElement = document.querySelector('main');
 
-        mainElement.innerHTML = '';
+        mainElement.innerHTML = '';             //alle Elemente werden überschrieben mit Leerzeichen
 
-        mainElement.style.gridTemplateColumns = '1fr 1fr 1fr';
+        mainElement.style.gridTemplateColumns = '1fr 1fr 1fr';      //Grid wird definiert
         mainElement.style.gridTemplateRows = '1fr 1fr 1fr';
 
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 9; i++) {           //Divs werden erstellt
 
             let factDivElement = document.createElement('div');
 
             factDivElement.classList.add('panel');
-            factDivElement.style.background = colors[Math.floor(Math.random() * 6)];
+            factDivElement.style.background = colors[Math.floor(Math.random() * 6)];        //Array Colors ganz am Anfang vom Scrpit definiert
             factDivElement.innerHTML = Math.floor(Math.random() * 10 + 1);
 
             mainElement.appendChild(factDivElement);
@@ -139,7 +160,7 @@
         mainElement.addEventListener('click', handleMainClick);
     }
 
-    document.querySelector('header').addEventListener('click', handleHeaderClick);
+    document.querySelector('header').addEventListener('click', handleHeaderClick);      //Klick auf den ganzen Header, nicht nur auf einen button speziell
 </script>
 
 </html>

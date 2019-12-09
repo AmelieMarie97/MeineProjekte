@@ -23,6 +23,18 @@ main {
     grid-area: main;
     background: rgb(252, 252, 252);
     padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /*display: grid;
+    grid-template-areas: "area1 area2 area3 area4" "area5 area6 area7 area8";
+    grid-template-columns: 1fr 1fr 1fr lfr;
+    grid-template-rows: 1fr 1fr;*/
+}
+
+div.GridButton{
+    padding: 0px;
     display: grid;
     grid-template-areas: "area1 area2 area3 area4" "area5 area6 area7 area8";
     grid-template-columns: 1fr 1fr 1fr lfr;
@@ -41,17 +53,12 @@ aside {
 
 footer {
     grid-area: footer;
-    padding: 20px;
+    padding: 15px;
     background: rgb(220, 220, 220);
     border-top-width: 5px;
     border-top-style: solid;
     border-top-color: rgb(55, 55, 55);
-}
-
-div.button {
-    float: left;
-    margin: 10px;
-    padding: 20px;
+    text-align: center;
 }
 
 button {

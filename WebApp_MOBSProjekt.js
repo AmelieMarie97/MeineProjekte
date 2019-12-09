@@ -1,28 +1,8 @@
-
-function Datum() {
-    var heute = new Date();
-
-    var Tag = heute.getDate(); // Tag
-
-    // Monatsangabe startet bei 0!
-    var Monat = heute.getMonth() + 1; // Monat
-
-    var Jahr = heute.getFullYear(); // Jahr
-    if (Tag < 10) {
-        Tag = '0' + Tag;
-    }
-    if (Monat < 10) {
-        Monat = '0' + Monat;
-    }
-    heute = Tag + '.' + Monat + '.' + Jahr;
-
-    return heute;
-}
-
-function DatumUhr() {
+// Datum und Uhrzeit in die Fußzeile schreiben
+function AnzeigeDatumUhr() {
     var Tag, Monat, Jahr;
-    var stunden, minuten, sekunden;
-    var StundenZahl, MinutenZahl, SekundenZahl;
+    var stunden, minuten;
+    var StundenZahl, MinutenZahl;
     var heute;
 
     heute = new Date();
@@ -31,7 +11,6 @@ function DatumUhr() {
     Jahr = heute.getFullYear();
     StundenZahl = heute.getHours();
     MinutenZahl = heute.getMinutes();
-    SekundenZahl = heute.getSeconds();
 
     if (Tag < 10) {
         Tag = '0' + Tag;
@@ -39,55 +18,36 @@ function DatumUhr() {
     if (Monat < 10) {
         Monat = '0' + Monat;
     }
-    heute = Tag + '.' + Monat + '.' + Jahr;
 
     stunden = StundenZahl + ":";
-    if (MinutenZahl < 10) { minuten = "0" + MinutenZahl + ":"; }
-    else { minuten = MinutenZahl + ":"; }
-    if (SekundenZahl < 10) { sekunden = "0" + SekundenZahl + " "; }
-    else { sekunden = SekundenZahl + " "; }
-    heute = stunden + minuten + sekunden + " Uhr" + heute;
-    DatumUhr.innerHTML = heute;
+    if (MinutenZahl < 10) { minuten = "0" + MinutenZahl; }
+    else { minuten = MinutenZahl; }
 
-    window.setTimeout("ticken();", 1000);
+    Anzeige = Tag + '.' + Monat + '.' + Jahr + "    -   " + stunden + minuten + " Uhr";
+    DatumUhr.innerHTML = Anzeige;
+
+    window.setTimeout("AnzeigeDatumUhr();", 1000);
 }
 
-window.onload = ticken;
+window.onload = AnzeigeDatumUhr;
 
 
-/*
-//Elemente mit Class "Item" ansprechen und mit neuem Text überschreiben
-document.getElementsByClassName("item")[0].innerHTML = "Hello World!";
-document.getElementsByClassName("item")[0].style.backgroundColor = "#97FFFF";
-document.getElementsByClassName("item")[1].innerHTML = "Wie geht es dir?";
-document.getElementsByClassName("item")[1].style.backgroundColor = "#9400D3";
-document.getElementsByClassName("item")[2].innerHTML = ":)";
-document.getElementsByClassName("item")[2].style.backgroundColor = "#0000FF";
-document.getElementsByTagName("main")[0].style.backgroundColor = "white";
-document.getElementsByTagName("main")[0].style.borderStyle = "dashed";
-document.getElementsByTagName("main")[0].style.borderColor = "#BEBEBE";
+//Klick auf Buttons
 
-//Text andere Elemente ändern
-document.getElementsByTagName("header")[0].innerHTML = "Meine tolle Website!";
-document.getElementsByTagName("aside")[0].innerHTML = "Seite";
-document.getElementsByTagName("footer")[0].innerHTML = "Fußzeile";
+const area1 = document.querySelector('.area1');
 
-//Inhalt von nav löschen und ein ul-Element mit mehreren li-Elementen einfügen
-var navigation = document.getElementsByTagName("nav")[0];
-navigation.removeChild(navigation.firstChild);
-document.getElementsByTagName("nav")[0].innerHTML = "Navigationsleiste: <ul><li>eins</li><li>zwei</li><li>drei</li></ul>";
-    //ist in CSS definiert und sieht daher anders aus als normalerweise
-/*var myNav = document.createElement("p");
-var myText = document.createTextNode("Navigationsleiste");
-myNav.appendChild(myText);
-var Ausgabebereich = document.getElementByTagName("nav");
-Ausgabebereich.appendChild(myNav);*
+function Button1() {
+    console.log("Hallo!:)");
 
-//Erstes Listenelement in Main-Teil löschen
-var navigation = document.getElementsByTagName("li")[3];
-navigation.removeChild(navigation.firstChild);
+    var div1 = document.createElement("div");
+    div1.innerHTML = "Huhu";
+    div1.style.background = "red";
+    document.getElementsByTagName("main")[0].appendChild(div1);
+}
 
-//Funktionalität in Nav-Leiste
-const guessSubmit = document.querySelector('.guessSubmit');
-guessSubmit.addEventListener('click', checkGuess);
-*/
+pushButton1.addEventListener('click', Button1);
+
+
+//https://elbnetz.com/elemente-nur-mit-css-ein-und-ausblenden/
+//https://developer.mozilla.org/de/docs/Web/CSS/visibility
+//https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event
