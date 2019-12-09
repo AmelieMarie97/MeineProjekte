@@ -1,48 +1,58 @@
-const pushButton1 = document.querySelector('.pushButton1');
 
-function Button1() {
-    console.log("Hallo!:)");
-    var image = document.getElementsByClassName("image")[0];
-    image.remove(image);
+function Datum() {
+    var heute = new Date();
 
-    var div1 = document.createElement("div");
-    div1.innerHTML = "Huhu";
-    div1.className = "area1";
-    div1.style.background = "red";
-    document.getElementsByTagName("main")[0].appendChild(div1);
+    var Tag = heute.getDate(); // Tag
 
-    var div2 = document.createElement("div");
-    div2.innerHTML = "Huhu";
-    div2.className = "area2";
-    div2.style.background = "green";
-    document.getElementsByTagName("main")[0].appendChild(div2);
+    // Monatsangabe startet bei 0!
+    var Monat = heute.getMonth() + 1; // Monat
 
-    var div3 = document.createElement("div");
-    div3.innerHTML = "Huhu";
-    div3.className = "area3";
-    div3.style.background = "blue";
-    document.getElementsByTagName("main")[0].appendChild(div3);
+    var Jahr = heute.getFullYear(); // Jahr
+    if (Tag < 10) {
+        Tag = '0' + Tag;
+    }
+    if (Monat < 10) {
+        Monat = '0' + Monat;
+    }
+    heute = Tag + '.' + Monat + '.' + Jahr;
 
-    var div4 = document.createElement("div");
-    div4.innerHTML = "Huhu";
-    div4.className = "area4";
-    div4.style.background = "yellow";
-    document.getElementsByTagName("main")[0].appendChild(div4);
-
-    var div5 = document.createElement("div");
-    div5.innerHTML = "Huhu";
-    div5.className = "area5";
-    div5.style.background = "orange";
-    document.getElementsByTagName("main")[0].appendChild(div5);
-
-    var div6 = document.createElement("div");
-    div6.innerHTML = "Huhu";
-    div6.className = "area6";
-    div6.style.background = "pink";
-    document.getElementsByTagName("main")[0].appendChild(div6);
+    return heute;
 }
 
-pushButton1.addEventListener('click', Button1);
+function DatumUhr() {
+    var Tag, Monat, Jahr;
+    var stunden, minuten, sekunden;
+    var StundenZahl, MinutenZahl, SekundenZahl;
+    var heute;
+
+    heute = new Date();
+    Tag = heute.getDate();
+    Monat = heute.getMonth() + 1;
+    Jahr = heute.getFullYear();
+    StundenZahl = heute.getHours();
+    MinutenZahl = heute.getMinutes();
+    SekundenZahl = heute.getSeconds();
+
+    if (Tag < 10) {
+        Tag = '0' + Tag;
+    }
+    if (Monat < 10) {
+        Monat = '0' + Monat;
+    }
+    heute = Tag + '.' + Monat + '.' + Jahr;
+
+    stunden = StundenZahl + ":";
+    if (MinutenZahl < 10) { minuten = "0" + MinutenZahl + ":"; }
+    else { minuten = MinutenZahl + ":"; }
+    if (SekundenZahl < 10) { sekunden = "0" + SekundenZahl + " "; }
+    else { sekunden = SekundenZahl + " "; }
+    heute = stunden + minuten + sekunden + " Uhr" + heute;
+    DatumUhr.innerHTML = heute;
+
+    window.setTimeout("ticken();", 1000);
+}
+
+window.onload = ticken;
 
 
 /*

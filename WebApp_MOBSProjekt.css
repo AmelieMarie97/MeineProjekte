@@ -12,6 +12,7 @@ body {
 
 header {
     grid-area: header;
+    padding: 20px;
     background: rgb(220, 220, 220);         /* 	#BABABA */
     border-bottom-width: 5px;
     border-bottom-style: solid;
@@ -23,8 +24,8 @@ main {
     background: rgb(252, 252, 252);
     padding: 0px;
     display: grid;
-    grid-template-areas: "area1 area2 area3" "area4 area5 area6";
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "area1 area2 area3 area4" "area5 area6 area7 area8";
+    grid-template-columns: 1fr 1fr 1fr lfr;
     grid-template-rows: 1fr 1fr;
 }
 
@@ -40,6 +41,7 @@ aside {
 
 footer {
     grid-area: footer;
+    padding: 20px;
     background: rgb(220, 220, 220);
     border-top-width: 5px;
     border-top-style: solid;
@@ -52,58 +54,49 @@ div.button {
     padding: 20px;
 }
 
-div.area1 {
+button {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgb(150, 150, 150);
+    border-color: rgb(150, 150, 150);
+    border-radius: 3em;
+    cursor: pointer;
+}
+
+button.area1 {
     grid-area: area1;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
 }
 
-div.area2 {
+button.area2 {
     grid-area: area2;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
 }
 
-div.area3 {
+button.area3 {
     grid-area: area3;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
 }
 
-div.area4 {
+button.area4 {
     grid-area: area4;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
 }
 
-div.area5 {
+button.area5 {
     grid-area: area5;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
 }
 
-div.area6 {
+button.area6 {
     grid-area: area6;
-    margin: 5px;
-    padding: 20px;
-    text-align: center;
-    background: rgb(150, 150, 150);
-    border-radius: 1.5em;
+}
+
+button.area7 {
+    grid-area: area7;
+}
+
+button.area8 {
+    grid-area: area8;
 }
 
 nav li {
