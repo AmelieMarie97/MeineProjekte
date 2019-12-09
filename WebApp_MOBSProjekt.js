@@ -39,13 +39,19 @@ const area1 = document.querySelector('.area1');
 function Button1() {
     console.log("Hallo!:)");
 
-    var div1 = document.createElement("div");
+  /*  var div1 = document.createElement("div");
     div1.innerHTML = "Huhu";
     div1.style.background = "red";
-    document.getElementsByTagName("main")[0].appendChild(div1);
+    document.getElementsByTagName("main")[0].appendChild(div1); */
 }
 
-pushButton1.addEventListener('click', Button1);
+area1.addEventListener('click', Button1);
+
+
+//Grid hiden
+document.getElementById("Buttons").onclick = function() {                  //geht auch mit addEventListener("click") statt .onklick
+    document.getElementById("Buttons").style.display = "none";
+}
 
 
 //https://elbnetz.com/elemente-nur-mit-css-ein-und-ausblenden/
