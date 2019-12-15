@@ -1,17 +1,13 @@
 // Datum und Uhrzeit in die Fußzeile schreiben
-function AnzeigeDatumUhr() {
+function AnzeigeDatum() {
     var Tag, Monat, Jahr;
-    var stunden, minuten;
-    var StundenZahl, MinutenZahl;
     var heute;
 
     heute = new Date();
     Tag = heute.getDate();
     Monat = heute.getMonth() + 1;
     Jahr = heute.getFullYear();
-    StundenZahl = heute.getHours();
-    MinutenZahl = heute.getMinutes();
-
+    
     if (Tag < 10) {
         Tag = '0' + Tag;
     }
@@ -19,39 +15,95 @@ function AnzeigeDatumUhr() {
         Monat = '0' + Monat;
     }
 
+    heute = Tag + '.' + Monat + '.' + Jahr;
+    
+    return heute;    
+}
+
+var heute = AnzeigeDatum();
+
+document.getElementById("Datum").textContent += heute;
+
+function AnzeigeUhr() {
+    var heute = new Date();
+    var stunden, minuten;
+    var StundenZahl, MinutenZahl;
+    var zeit;
+
+    StundenZahl = heute.getHours();
+    MinutenZahl = heute.getMinutes();
+
     stunden = StundenZahl + ":";
     if (MinutenZahl < 10) { minuten = "0" + MinutenZahl; }
     else { minuten = MinutenZahl; }
 
-    Anzeige = Tag + '.' + Monat + '.' + Jahr + "    -   " + stunden + minuten + " Uhr";
-    DatumUhr.innerHTML = Anzeige;
+    zeit = stunden + minuten + " Uhr";
 
     window.setTimeout("AnzeigeDatumUhr();", 1000);
+    return zeit;
 }
 
-window.onload = AnzeigeDatumUhr;
+var zeit = AnzeigeUhr();
+
+document.getElementById("Uhr").textContent += zeit;
+
 
 
 //Klick auf Buttons
 
-const area1 = document.querySelector('.area1');
+function handleHeaderClick(event) {
 
-function Button1() {
-    console.log("Hallo!:)");
+  switch (event.target.id) {
 
-  /*  var div1 = document.createElement("div");
-    div1.innerHTML = "Huhu";
-    div1.style.background = "red";
-    document.getElementsByTagName("main")[0].appendChild(div1); */
+      case 'home':
+          ClickHome();
+          break;
+
+  }
 }
 
-area1.addEventListener('click', Button1);
+function handleMainClick(event) {
 
+    switch (event.target.id) {
 
-//Grid hiden
-document.getElementById("Buttons").onclick = function() {                  //geht auch mit addEventListener("click") statt .onklick
-    document.getElementById("Buttons").style.display = "none";
+    case 'StatusinformationID':
+      ClickStatusinformation();
+      break;
+
+    case 'AufsperrenID':
+      ClickAuf();
+      break;
+
+    case 'AbsperrenID':
+      ClickZu();
+    break;
+
+    case 'FensterID':
+      ClickFenster();
+    break;
+
+    case 'MusikID':
+      ClickMusik();
+    break;
+
+    case 'NavigationID':
+      ClickNavi();
+    break;
+    }
 }
+
+//Klick Home
+function ClickHome() {
+  let mainElement = document.querySelector('main');
+  mainElement.innerHTML = '';
+  
+  var h = document.getElementById('Home');
+  document.getElementsByTagName("main")[0].appendChild(h.content.cloneNode(true));
+}
+
+
+document.querySelector('main').addEventListener('click', handleMainClick);
+document.querySelector('header').addEventListener('click', handleHeaderClick);
 
 
 //https://elbnetz.com/elemente-nur-mit-css-ein-und-ausblenden/
