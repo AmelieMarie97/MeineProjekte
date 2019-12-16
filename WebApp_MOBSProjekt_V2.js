@@ -21,7 +21,6 @@ function AnzeigeDatum() {
 }
 
 var heute = AnzeigeDatum();
-
 document.getElementById("Datum").textContent += heute;
 
 function AnzeigeUhr() {
@@ -44,7 +43,6 @@ function AnzeigeUhr() {
 }
 
 var zeit = AnzeigeUhr();
-
 document.getElementById("Uhr").textContent += zeit;
 
 
@@ -67,6 +65,7 @@ fetch("http://192.168.0.82:5000/status").then(function (response) {
         document.getElementsByClassName("templateStatusdaten")[4].append(humidity[1] + " g/m³");
     });
 });
+
 /*in Konsole hierfür:
 ssh pi@192.168.0.104
 ls 
