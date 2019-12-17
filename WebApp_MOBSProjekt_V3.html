@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tesla Entertainment System</title>
+    <link rel="stylesheet" href="WebApp_MOBSProjekt_V3.css">
+    <script src="WebApp_MOBSProjekt_V3.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <button id="home"> Home </button>
+        <div class="Titel"> MOBS Projekt 2019 </div>
+        <img class="LogoTesla" src="Bilder/TeslaLogo.png"></img>
+    </header>
+
+    <main>
+        <div class="GridMenu" id="menuContainer">
+            <button type="submit" class="Statusinfo" id="StatusinfoID">
+                <img src="Bilder/Tankstelle.png" width=50%></img>
+            </button>
+            <button type="submit" class="Statusinfo" id="StatusinfoID">
+                <img src="Bilder/Wetter.png" width=50%></img>
+            </button>
+            <button type="submit" class="Musik" id="MusikID">
+                <img src="Bilder/Musik.png" width=50%></img>
+            </button>
+            <button type="submit" class="Musik" id="MusikID">
+                <img src="Bilder/SchlossAuto.png" width=50%></img>
+            </button>
+            <button type="submit" class="Fenster" id="FensterID">
+                <img src="Bilder/FensterMenu.png" width=50%></img>
+            </button>
+            <button type="submit" class="Navigation" id="NavigationID">
+                <img src="Bilder/GoogleMaps.png" width=60%></img>
+            </button>
+
+            <div class="templateStatusdaten">             <!-- Kontrolle Pi-Daten -> Button vorher wieder ersetzen-->
+                Geschwindigkeit:
+            </div>
+            <div class="templateStatusdaten">
+                Verbrauch:
+            </div>
+            <div class="templateStatusdaten">
+                Druck:
+            </div>
+            <div class="templateStatusdaten">
+                Temperatur:
+            </div>
+            <div class="templateStatusdaten">
+                Luftfeuchtigkeit:
+            </div>
+            <button type="submit" class="FensterZu" id="FensterZuID">
+                <img src="Bilder/.png" width=50%></img>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <div id="Uhr"></div>
+        <div class="Autor"> @ Amelie Kleinknecht </div>
+        <div id="Datum"></div>
+    </footer>
+
+    <template id="HomeScreen">
+        <div class="GridMenu" id="menuContainer">
+            <button type="submit" class="Musik" id="MusikID">
+                <img src="Bilder/Musik.png" width=50%></img>
+            </button>
+            <button type="submit" class="Navigation" id="NavigationID">
+                <img src="https://image.flaticon.com/icons/png/512/104/104062.png" width=60%></img>
+            </button>
+            <button type="submit" class="Statusinfo" id="StatusinfoID">
+                <img src="Bilder/Einstellungen.png" width=50%></img>
+            </button>
+            <button type="submit" class="Fenster" id="FensterID">
+                <img src="Bilder/.png" width=50%></img>
+            </button>
+            <button type="submit" class="Verriegeln" id="VerriegelnID">
+                <img src="Bilder/.png" width=50%></img>
+            </button>
+            <button type="submit" class="Aufschliessen" id="AufschliessenID">
+                <img src="Bilder/.png" width=50%></img>
+            </button>
+        </div>
+    </template>
+
+    <template id="AutoDatenScreen">
+        <div class="GridAutoDaten" id="AutoDatenContainer">
+            <div class=templateStatusdaten>
+                Geschwindigkeit:
+            </div>
+            <div class=templateStatusdaten>
+                Verbrauch:
+            </div>
+        </div>
+    </template>
+
+    <template id="WetterDatenScreen">
+        <div class="GridWetterDaten" id="WetterDatenContainer">
+            <div class=templateStatusdaten>
+                Druck:
+            </div>
+            <div class=templateStatusdaten>
+                Temperatur:
+            </div>
+            <div class=templateStatusdaten>
+                Luftfeuchtigkeit:
+            </div>
+        </div>
+    </template>
+
+    <template id="MusikScreen">
+        <div class="GridMusik" id="ContainerMusik">
+            <div class="templateMusic">
+                Musik anzeigen:
+            </div>
+        </div>
+    </template>
+
+    <template id="SchlossScreen">
+        <div class="GridSchloss" id="ContainerSchloss">
+
+            <button type="submit" class="Verriegeln" id="VerriegelnID">
+                <img src="Bilder/SchlossLock.png" width=50%></img>
+            </button>
+            <button type="submit" class="Aufschliessen" id="AufschliessenID">
+                <img src="Bilder/SchlossUnlock2.png" width=50%></img>
+            </button>
+        </div>
+    </template>
+
+    <template id="FensterScreen">
+        <div class="GridFenster" id="ContainerFenster">
+
+            <div class="FensterRechts">
+                <input type="submit" value="Rechtes Fenster">
+            </div>
+            <div class="FensterLinks">
+                <input type="submit" value="Linkes Fenster">
+            </div>
+            <div class="FensterAlle">
+                <input type="submit" value="Alle Fenster">
+            </div>
+        </div>
+    </template>
+
+    <template id="NaviScreen">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d84278.02477972793!2d9.623368640950268!3d48.69232429391882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1576085616097!5m2!1sde!2sde"
+            width="1500" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    </template>
+
+</body>
+
+</html>

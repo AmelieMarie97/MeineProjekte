@@ -1,0 +1,139 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 2em;
+    font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-columns: auto;
+    grid-template-rows: 15% auto 8%;  
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: rgb(220, 220, 220);         /* 	#BABABA */
+    border-bottom-width: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(55, 55, 55);
+    display: grid;
+    grid-template-areas: "headerleft headermiddle headerright";
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: auto;
+}
+
+main {
+    grid-area: main;
+    background: rgb(252, 252, 252);
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /*display: grid;
+    grid-template-areas: "area1 area2 area3 area4" "area5 area6 area7 area8";
+    grid-template-columns: 1fr 1fr 1fr lfr;
+    grid-template-rows: 1fr 1fr;*/
+}
+
+div.GridMenu{
+    padding: 0px;
+    display: grid;
+    grid-template-areas: "Statusinfo Musik Navigation" "Fenster Verriegeln Aufsclhliessen";
+    grid-template-columns: 1fr 1fr 1fr lfr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+footer {
+    grid-area: footer;
+    background: rgb(220, 220, 220);
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-top-color: rgb(55, 55, 55);
+    display: grid;
+    grid-template-areas: "footerleft footermiddle footerright";
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: auto;
+}
+
+button {
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgb(150, 150, 150);
+    border-color: rgb(150, 150, 150);
+    border-radius: 3em;
+    cursor: pointer;
+}
+
+button.area1 {
+    grid-area: area1;
+}
+
+button.area2 {
+    grid-area: area2;
+}
+
+button.area3 {
+    grid-area: area3;
+}
+
+button.area4 {
+    grid-area: area4;
+}
+
+button.area5 {
+    grid-area: area5;
+}
+
+button.area6 {
+    grid-area: area6;
+}
+
+button.area7 {
+    grid-area: area7;
+}
+
+button.area8 {
+    grid-area: area8;
+}
+
+#home {
+    grid-area: headerleft;
+    float: left;
+}
+
+div.Titel {
+    grid: headermiddle;
+    margin: 30px;
+    text-align: center;
+}
+
+div.Autor {
+    grid: footermiddle;
+    margin: 5px;
+    text-align: center;
+}
+
+img.LogoTesla {
+    grid: headerright;
+    text-align: right;
+    width: 50px;
+    margin: 0.4em;
+}
+
+#Datum{
+    grid: footerright;
+    text-align: right;
+    padding: 5px;
+}
+
+#Uhr{
+    grid: footerleft;
+    padding: 5px;
+}
