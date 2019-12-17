@@ -25,25 +25,27 @@ document.getElementById("Datum").textContent += heute;
 
 function AnzeigeUhr() {
     var heute = new Date();
-    var stunden, minuten;
-    var StundenZahl, MinutenZahl;
+    var stunden, minuten, sekunden;
+    var StundenZahl, MinutenZahl, Sekundenzahl;
     var zeit;
 
     StundenZahl = heute.getHours();
     MinutenZahl = heute.getMinutes();
+    SekundenZahl = heute.getSeconds();
 
     stunden = StundenZahl + ":";
-    if (MinutenZahl < 10) { minuten = "0" + MinutenZahl; }
-    else { minuten = MinutenZahl; }
+    if (MinutenZahl < 10) { minuten = "0" + MinutenZahl + ":"; }
+    else { minuten = MinutenZahl + ":"; }
+    if (SekundenZahl < 10) { sekunden = "0" + SekundenZahl + " "; }
+    else { sekunden = SekundenZahl + " "; }
 
-    zeit = stunden + minuten + " Uhr";
+    zeit = stunden + minuten + sekunden + " Uhr";
+    Uhr.innerHTML = zeit;
 
-    window.setTimeout("AnzeigeDatumUhr();", 1000);
-    return zeit;
+    window.setTimeout("AnzeigeUhr();", 1000);
 }
 
-var zeit = AnzeigeUhr();
-document.getElementById("Uhr").textContent += zeit;
+window.onload = AnzeigeUhr;
 
 
 //Pi einbinden: Statusinfos

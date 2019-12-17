@@ -25,7 +25,7 @@ header {
 main {
     grid-area: main;
     background: rgb(252, 252, 252);
-    padding: 0px;
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,10 +37,9 @@ main {
 }
 
 div.GridMenu{
-    padding: 0px;
     display: grid;
     grid-template-areas: "Statusinfo Musik Navigation" "Fenster Verriegeln Aufsclhliessen";
-    grid-template-columns: 1fr 1fr 1fr lfr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: center;
     justify-items: center;
