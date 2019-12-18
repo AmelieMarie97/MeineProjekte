@@ -76,6 +76,7 @@ ls
 python3 services.py
 */
 
+
 //Lock Unlock: Auto
 let ButtonZu = document.querySelector('.Verriegeln');
 function schliessenAuto() {
@@ -100,18 +101,17 @@ ButtonAuf.addEventListener('click', oeffnenAuto);
 */
 
 //Lock Unlock: Fenster
+let ButtonAufFenster = document.querySelector('.Fenster');
+function oeffnenFenster() {
+    fetch("http://192.168.0.82:5000/window/open").then(console.log("done"));
+}
+ButtonAufFenster.addEventListener('click', oeffnenFenster); 
+
 let ButtonZuFenster = document.querySelector('.FensterZu');
 function schliessenFenster() {
     fetch("http://192.168.0.82:5000/window/close").then(console.log("done"));
 }
 ButtonZuFenster.addEventListener('click', schliessenFenster);
-
-let ButtonAufFenster = document.querySelector('.Fenster');
-function oeffnenFenster() {
-    fetch("http://192.168.0.82:5000/window/open").then(console.log("done"));
-}
-ButtonAufFenster.addEventListener('click', oeffnenFenster);
-
 
 
 

@@ -38,7 +38,7 @@ main {
 
 div.GridMenu{
     display: grid;
-    grid-template-areas: "Statusinfo Musik Navigation" "Fenster Verriegeln Aufsclhliessen";
+    grid-template-areas: "Statusinfo Musik Navigation" "Fenster Verriegeln Aufsclhliessen";     /*Umbenennen in cell1 bis 6*/
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     align-items: center;
