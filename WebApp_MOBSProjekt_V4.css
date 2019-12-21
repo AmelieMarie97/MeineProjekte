@@ -3,19 +3,17 @@ body {
     margin: 0px;
     font-size: 1.5em;
     font-family: Tahoma, Geneva, sans-serif;
+    color: white;
     display: grid;
     grid-template-areas: "header" "main" "footer";
     grid-template-columns: auto;
-    grid-template-rows: 15% auto 8%;  
+    grid-template-rows: 10% auto 8%;  
     height: 100vh;
 }
 
 header {
     grid-area: header;
-    background: rgb(220, 220, 220);         /* 	#BABABA */
-    border-bottom-width: 5px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(55, 55, 55);
+    background: black;
     display: grid;
     grid-template-areas: "headerleft headermiddle headerright";
     grid-template-columns: 20% auto 20%;
@@ -24,8 +22,8 @@ header {
 
 main {
     grid-area: main;
-    background: rgb(252, 252, 252);
-    padding: 50px;
+    background: black;
+    padding: 50px 15% 50px 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,10 +32,7 @@ main {
 
 footer {
     grid-area: footer;
-    background: rgb(220, 220, 220);
-    border-top-width: 5px;
-    border-top-style: solid;
-    border-top-color: rgb(55, 55, 55);
+    background: black;
     display: grid;
     grid-template-areas: "footerleft footermiddle footerright";
     grid-template-columns: 20% auto 20%;
@@ -54,14 +49,14 @@ div.GridMenu{
 }
 button {
     margin: 20px;
-    padding: 20px;
-    display: flex;
+    height: 75%;
+    width: 75%;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     background: rgb(150, 150, 150);
     border-color: rgb(150, 150, 150);
-    border-radius: 3em;
+    border-radius: 2.5em;
     cursor: pointer;
 }
 button.StatusAuto {
@@ -83,12 +78,11 @@ button.Navigation {
     grid-area: MenuCell_6;
 }
 
-
 div.GridAutoDaten{
     display: grid;
     grid-template-areas: "AutoDatenCell_1 AutoDatenCell_2" "AutoDatenCell_3 AutoDatenCell_3";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 25%;
     align-items: center;
     justify-items: center;
 }
@@ -104,7 +98,7 @@ div.GridWetterDaten{
     display: grid;
     grid-template-areas: "WetterDatenCell_1 WetterDatenCell_2 WetterDatenCell_3" "WetterDatenCell_4 WetterDatenCell_5 WetterDatenCell_6";
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 25%;
     align-items: center;
     justify-items: center;
 }
@@ -128,9 +122,9 @@ div.templateMusic{
 
 div.GridSchloss{
     display: grid;
-    grid-template-areas: "SchlossCell_1 SchlossCell_2" "SchlossCell_3 SchlossCell_4";
+    grid-template-areas: "SchlossCell_1 SchlossCell_2";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto;
     align-items: center;
     justify-items: center;
 }
@@ -150,30 +144,34 @@ div.GridFenster{
     align-items: center;
     justify-items: center;
 }
-div.FensterRechtsHoch {
+button.FensterRechtsHoch {
     grid-area: FensterCell_1;
 }
-div.FensterRechtsRunter {
+button.FensterRechtsRunter {
     grid-area: FensterCell_4;
 }
-div.FensterAlleHoch {
+button.FensterAlleHoch {
     grid-area: FensterCell_2;
 }
-div.FensterAlleRunter {
+button.FensterAlleRunter {
     grid-area: FensterCell_5;
 }
-div.FensterLinksHoch {
+button.FensterLinksHoch {
     grid-area: FensterCell_3;
 }
-div.FensterLinksRunter {
+button.FensterLinksRunter {
     grid-area: FensterCell_6;
 }
-
 
 
 #home {
     grid-area: headerleft;
     float: left;
+    padding: 0px;
+    height: 50%;
+    width: 75%;
+    align-items: center;
+    justify-items: center;
 }
 
 div.Titel {

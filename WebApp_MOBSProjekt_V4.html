@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>Tesla Entertainment System</title>
-    <link rel="stylesheet" href="WebApp_MOBSProjekt_V3.css">
-    <script src="WebApp_MOBSProjekt_V3.js" defer></script>
+    <link rel="stylesheet" href="WebApp_MOBSProjekt_V4.css">
+    <script src="WebApp_MOBSProjekt_V4.js" defer></script>
 </head>
 
 <body>
 
     <header>
         <button id="home"> Home </button>
-        <div class="Titel"> MOBS Projekt 2019 </div>
-        <img class="LogoTesla" src="Bilder/TeslaLogo.png"></img>
+        <div class="Titel"> Car Entertainment System</div>
+        <img class="LogoTesla" src="Bilder/TeslaLogo.png" height=auto></img>
     </header>
 
     <main>
@@ -70,8 +70,12 @@
 
     <template id="AutoDatenScreen">
         <div class="GridAutoDaten" id="AutoDatenContainer">
-            <img src="Bilder/GeschwindigkeitAuto.png" class="GeschwindigkeitAuto" width=50%></img>
-            <img src="Bilder/Verbrauch.png" class="VerbrauchAuto" width=50%></img>
+            <button>
+                <img src="Bilder/GeschwindigkeitAuto.png" class="GeschwindigkeitAuto" width=30%></img>
+            </button>
+            <button>
+                <img src="Bilder/Verbrauch.png" class="VerbrauchAuto" width=30%></img>
+            </button>
             <div class=WertGeschwindigkeit>
                 Geschwindigkeit:
             </div>
@@ -83,9 +87,15 @@
 
     <template id="WetterDatenScreen">
         <div class="GridWetterDaten" id="WetterDatenContainer">
-            <img src="Bilder/Druck.png" class="BildDruck" width=50%></img>
-            <img src="Bilder/Temperatur.png" class="BildTemp" width=50%></img>
-            <img src="Bilder/Luftfeuchtigkeit.jpg" class="BildLuftfeuchte" width=50%></img>
+            <button>
+                <img src="Bilder/Druck.png" class="BildDruck" width=50%></img>
+            </button>
+            <button>
+                <img src="Bilder/Temperatur.png" class="BildTemp" width=50%></img>
+            </button>
+            <button>
+                <img src="Bilder/Luftfeuchtigkeit.png" class="BildLuftfeuchte" width=50%></img>
+            </button>
             <div class=WertDruck>
                 Druck:
             </div>
@@ -110,10 +120,10 @@
         <div class="GridSchloss" id="ContainerSchloss">
 
             <button type="submit" class="Verriegeln" id="VerriegelnID">
-                <img src="Bilder/SchlossLock.png" width=50%></img>
+                <img src="Bilder/SchlossLock.png" width=35%></img>
             </button>
             <button type="submit" class="Aufschliessen" id="AufschliessenID">
-                <img src="Bilder/SchlossUnlock2.png" width=50%></img>
+                <img src="Bilder/SchlossUnlock2.png" width=35%></img>
             </button>
         </div>
     </template>
@@ -121,24 +131,24 @@
     <template id="FensterScreen">
         <div class="GridFenster" id="ContainerFenster">
 
-            <div class="FensterRechtsHoch">
+            <button type="submit" class="FensterRechtsHoch">
                 <img src="Bilder/FensterRechtsHoch.png" width=50%></img>
-            </div>
-            <div class="FensterRechtsRunter">
+            </button>
+            <button type="submit" class="FensterRechtsRunter">
                 <img src="Bilder/FensterRechtsRunter.png" width=50%></img>
-            </div>
-            <div class="FensterLinksHoch">
+            </button>
+            <button type="submit" class="FensterLinksHoch">
                 <img src="Bilder/FensterLinksHoch.png" width=50%></img>
-            </div>
-            <div class="FensterLinksRunter">
+            </button>
+            <button type="submit" class="FensterLinksRunter">
                 <img src="Bilder/FensterLinksRunter.png" width=50%></img>
-            </div>
-            <div class="FensterAlleHoch">
+            </button>
+            <button type="submit" class="FensterAlleHoch">
                 <img src="Bilder/FensterAlleHoch.png" width=50%></img>
-            </div>
-            <div class="FensterAlleRunter">
+            </button>
+            <button type="submit" class="FensterAlleRunter">
                 <img src="Bilder/FensterAlleRunter.png" width=50%></img>
-            </div>
+            </button>
         </div>
     </template>
 
