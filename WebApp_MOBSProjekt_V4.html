@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <button id="home"> Home </button>
+        <button id="home" class"home"> Home </button>
         <div class="Titel"> Car Entertainment System</div>
         <img class="LogoTesla" src="Bilder/TeslaLogo.png" height=auto></img>
     </header>
@@ -110,9 +110,18 @@
 
     <template id="MusikScreen">
         <div class="GridMusik" id="ContainerMusik">
-            <div class="templateMusic">
-                Musik anzeigen:
-            </div>
+            Playlist:
+            <div class="MusikDaten"> </div>
+            <div class="MusikDaten"> </div>
+            <div class="MusikDaten"> </div>
+
+            <button type="submit" class="Play" id="PlayID">
+                <img src="Bilder/Play.png" width=35%></img>
+            </button>
+            <button type="submit" class="Pause" id="PauseID">
+                <img src="Bilder/Pause.png" width=35%></img>
+            </button>
+            <audio id="AudioID" src="Audio/Maroon_5-Memories_PIANO_COVER.mp3" type="m4a"></audio>
         </div>
     </template>
 

@@ -181,7 +181,7 @@ function ClickStatusAuto() {
         var consumption = array[0].split(":");
         var speed = array[3].split(":");
      
-        document.getElementsByClassName("WertGeschwindigkeit")[0].append(speed[1] + " km");
+        document.getElementsByClassName("WertGeschwindigkeit")[0].append(speed[1] + " km/h");
         document.getElementsByClassName("WertVerbrauch")[0].append(consumption[1] + " l");
     });
   });
@@ -195,6 +195,7 @@ function ClickStatusWetter() {
   var w = document.getElementById('WetterDatenScreen');
   document.getElementsByTagName("main")[0].appendChild(w.content.cloneNode(true));
 
+  "use Strict";
 
   fetch("http://192.168.178.82:5000/status").then(function (response) {         //192.168.0.82 im Labor!!
     response.text().then(function (text) {
@@ -218,12 +219,28 @@ function ClickMusik() {
   var m = document.getElementById('MusikScreen');
   document.getElementsByTagName("main")[0].appendChild(m.content.cloneNode(true));
 
+  "use Strict";
+
   fetch("http://192.168.178.82:5000/music").then(function (response) {
         response.text().then(function (text) {
             tracks = JSON.parse(text);
-            console.log(text);
-        });
+            console.log(text);  
+
+  document.getElementsByClassName("MusikDaten")[0].append(tracks[0].artist, " - ", tracks[0].title);
+  document.getElementsByClassName("MusikDaten")[1].append(tracks[1].artist, " - ", tracks[1].title);
+  document.getElementsByClassName("MusikDaten")[2].append(tracks[2].artist, " - ", tracks[2].title);
   });
+  });
+
+  var song = document.getElementById("AudioID");
+  function PlayAudio() {
+    song.play()
+  }
+  function PauseAudio() {
+    song.pause()
+  }
+  document.querySelector(".Play").addEventListener('click', PlayAudio);
+  document.querySelector(".Pause").addEventListener('click', PauseAudio);
 }
 
 //Klicken Schloss
@@ -234,6 +251,7 @@ function ClickSchloss() {
   document.getElementsByTagName("main")[0].appendChild(s.content.cloneNode(true));
 
   //Lock Unlock: Auto
+  "use Strict";
     function schliessenAuto() {
         fetch("http://192.168.178.82:5000/action/lock").then(console.log("done: Auto schließen"));
     }
@@ -252,6 +270,7 @@ function ClickFenster() {
   var f = document.getElementById('FensterScreen');
   document.getElementsByTagName("main")[0].appendChild(f.content.cloneNode(true));
 
+  "use Strict";
   function oeffnenFensterLinks() {
         fetch("http://192.168.178.82:5000/window/leftopen").then(console.log("done: Fenster öffnen"));
   }
@@ -298,7 +317,9 @@ function ClickHome() {
   
   var h = document.getElementById('HomeScreen');
   document.getElementsByTagName("main")[0].appendChild(h.content.cloneNode(true));
-  }
+
+  fetch("http://192.168.178.82:5000/action/black").then(console.log("done: Fenster schließen"));
+}
 
 document.querySelector('main').addEventListener('click', handleMainClick);
 document.querySelector('header').addEventListener('click', handleHeaderClick);
