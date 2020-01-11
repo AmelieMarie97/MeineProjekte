@@ -109,14 +109,21 @@ div.templateStatusdaten {
 
 div.GridMusik{
     display: grid;
-    grid-template-areas: "MusikCell_1";
-    grid-template-columns: auto;
-    grid-template-rows:auto;
+    grid-template-areas: "MusikCell_1 MusikCell_1" "MusikCell_2 MusikCell_2" "MusikCell_3 MusikCell_4";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     align-items:center;
     justify-items:center;
-}
-div.templateMusic{
     grid-area: MusikCell_1;
+}
+div.MusikDaten{
+    grid-area: MusikCell_2;
+}
+button.Play {
+    grid-area: MusikCell_3;
+}
+button.Pause {
+    grid-area: MusikCell_4;
 }
 
 

@@ -127,6 +127,8 @@ function handleHeaderClick(event) {
     switch (event.target.id) {
 
         case 'home':
+            clearIntervall(IntervallWetter);
+            clearIntervall(IntervallAuto);
             ClickHome();
             break;
 
@@ -139,10 +141,16 @@ function handleMainClick(event) {
 
         case 'StatusAutoID':
             ClickStatusAuto();
+            var IntervallAuto = setIntervall(function() {
+                ClickStatusAuto();     
+			}, 1000);
             break;
 
         case 'StatusWetterID':
             ClickStatusWetter();
+            var IntervallWetter = setIntervall(function() {
+                ClickStatusWetter();     
+			}, 1000);
             break;
 
         case 'MusikID':
