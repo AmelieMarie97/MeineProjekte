@@ -127,8 +127,8 @@ function handleHeaderClick(event) {
     switch (event.target.id) {
 
         case 'home':
-            clearIntervall(IntervallWetter);
-            clearIntervall(IntervallAuto);
+         //   clearIntervall(IntervallWetter);
+         //   clearIntervall(IntervallAuto);
             ClickHome();
             break;
 
