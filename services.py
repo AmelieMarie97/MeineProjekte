@@ -93,8 +93,8 @@ def action(action):
 @app.route('/window/<action>')
 def window(action):
 
-    sense = SenseHat()
-#   sense.show_message(request.remote_addr, text_colour=(255, 255, 0), back_colour=(127, 0, 127))
+	sense = SenseHat()
+#	sense.show_message(request.remote_addr, text_colour=(255, 255, 0), back_colour=(127, 0, 127))
 
 	if action=="leftclose":
 
@@ -105,7 +105,7 @@ def window(action):
 		pixels = [
 			r, r, r, b, b, b, b, b,
 			r, b, r, r, b, b, b, b,
-			r, b, g, r, r, b, b, b,
+			r, b, g, b, r, r, b, b,
 			r, g, b, g, b, r, r, b,
 			r, b, b, b, b, b, b, r,
 			r, b, g, b, b, b, b, r,
@@ -116,7 +116,7 @@ def window(action):
 	elif action=="leftopen":
 
 		b = (0, 0, 0)
-		r = (0, 255, 0)
+		r = (0, 255, 255)
 		g = (0, 255, 0)
 
 		pixels = [
@@ -139,7 +139,7 @@ def window(action):
 		pixels = [
 			b, b, b, b, b, r, r, r,
 			b, b, b, b, r, r, b, r,
-			b, b, b, r, r, g, b, r,
+			b, b, r, r, b, g, b, r,
 			b, r, r, b, g, b, g, r,
 			r, b, b, b, b, b, b, r,
 			r, b, b, b, b, g, b, r,
@@ -150,12 +150,12 @@ def window(action):
 	elif action=="rightopen":
 
 		b = (0, 0, 0)
-		r = (0, 255, 0)
+		r = (0, 255, 255)
 		g = (0, 255, 0)
 
 		pixels = [
-			g, b, g, b, b, g, b, g,
-			b, g, b, b, b, b, g, b,
+			g, b, g, b, b, b, b, b,
+			b, g, b, b, b, b, b, b,
 			b, b, b, b, b, r, r, r,
 			g, b, g, b, r, r, b, r,
 			b, g, b, r, r, b, b, r,
@@ -196,6 +196,21 @@ def window(action):
 			r, r, r, r, r, r, r, r,
 			r, b, b, b, b, b, b, r,
 			r, r, r, r, r, r, r, r
+		]
+
+	elif action=="black":
+
+		b = (0, 0, 0)
+
+		pixels = [
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, b, b, b, b
 		]
 
 	sense.set_pixels(pixels)

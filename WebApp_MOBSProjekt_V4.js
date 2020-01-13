@@ -121,15 +121,18 @@ ENDE AUSKOMMENTIERT*/
 
 "use Strict";
 
+var IntervallWetter;
+var IntervallAuto;
+
 //Klick auf Buttons
 function handleHeaderClick(event) {
 
     switch (event.target.id) {
 
         case 'home':
-         //   clearIntervall(IntervallWetter);
-         //   clearIntervall(IntervallAuto);
             ClickHome();
+        //    clearIntervall(IntervallWetter);
+        //    clearIntervall(IntervallAuto);
             break;
 
     }
@@ -141,16 +144,16 @@ function handleMainClick(event) {
 
         case 'StatusAutoID':
             ClickStatusAuto();
-            var IntervallAuto = setIntervall(function() {
-                ClickStatusAuto();     
-			}, 1000);
+   //         IntervallAuto = setIntervall(function() {
+   //             ClickStatusAuto();     
+	//		}, 1000);
             break;
 
         case 'StatusWetterID':
             ClickStatusWetter();
-            var IntervallWetter = setIntervall(function() {
-                ClickStatusWetter();     
-			}, 1000);
+   //         IntervallWetter = setIntervall(function() {
+   //             ClickStatusWetter();     
+//			}, 1000);
             break;
 
         case 'MusikID':
@@ -182,7 +185,7 @@ function ClickStatusAuto() {
 
   "use Strict";
 
-  fetch("http://192.168.178.82:5000/status").then(function (response) {         //192.168.0.82 im Labor!!
+  fetch("http://192.168.178.61:5000/status").then(function (response) {         //192.168.0.82 im Labor!!     192.168.178.61
     response.text().then(function (text) {
         console.log(text);
         var array = text.split(',');
@@ -205,7 +208,7 @@ function ClickStatusWetter() {
 
   "use Strict";
 
-  fetch("http://192.168.178.82:5000/status").then(function (response) {         //192.168.0.82 im Labor!!
+  fetch("http://192.168.178.61:5000/status").then(function (response) {         //192.168.0.82 im Labor!!
     response.text().then(function (text) {
         console.log(text);
         var array = text.split(',');
@@ -229,7 +232,7 @@ function ClickMusik() {
 
   "use Strict";
 
-  fetch("http://192.168.178.82:5000/music").then(function (response) {
+  fetch("http://192.168.178.61:5000/music").then(function (response) {
         response.text().then(function (text) {
             tracks = JSON.parse(text);
             console.log(text);  
@@ -261,12 +264,12 @@ function ClickSchloss() {
   //Lock Unlock: Auto
   "use Strict";
     function schliessenAuto() {
-        fetch("http://192.168.178.82:5000/action/lock").then(console.log("done: Auto schließen"));
+        fetch("http://192.168.178.61:5000/action/lock").then(console.log("done: Auto schließen"));
     }
     document.querySelector('.Verriegeln').addEventListener('click', schliessenAuto);
 
     function oeffnenAuto() {
-        fetch("http://192.168.178.82:5000/action/unlock").then(console.log("done: Auto öffnen"));
+        fetch("http://192.168.178.61:5000/action/unlock").then(console.log("done: Auto öffnen"));
     }
     document.querySelector('.Aufschliessen').addEventListener('click', oeffnenAuto);
 }
@@ -280,34 +283,34 @@ function ClickFenster() {
 
   "use Strict";
   function oeffnenFensterLinks() {
-        fetch("http://192.168.178.82:5000/window/leftopen").then(console.log("done: Fenster öffnen"));
+        fetch("http://192.168.178.61:5000/window/leftopen").then(console.log("done: Fenster öffnen"));
   }
   document.querySelector('.FensterLinksRunter').addEventListener('click', oeffnenFensterLinks); 
 
   function schliessenFensterLinks() {
-        fetch("http://192.168.178.82:5000/window/leftclose").then(console.log("done: Fenster schließen"));
+        fetch("http://192.168.178.61:5000/window/leftclose").then(console.log("done: Fenster schließen"));
   }
   document.querySelector('.FensterLinksHoch').addEventListener('click', schliessenFensterLinks);
 
   function oeffnenFensterRechts() {
-        fetch("http://192.168.178.82:5000/window/rightopen").then(console.log("done: Fenster öffnen"));
+        fetch("http://192.168.178.61:5000/window/rightopen").then(console.log("done: Fenster öffnen"));
   }
   document.querySelector('.FensterRechtsRunter').addEventListener('click', oeffnenFensterRechts); 
 
   function schliessenFensterRechts() {
-        fetch("http://192.168.178.82:5000/window/rightclose").then(console.log("done: Fenster schließen"));
+        fetch("http://192.168.178.61:5000/window/rightclose").then(console.log("done: Fenster schließen"));
   }
   document.querySelector('.FensterRechtsHoch').addEventListener('click', schliessenFensterRechts);
 
   function oeffnenFensterAlle() {
-        fetch("http://192.168.178.82:5000/window/allopen").then(console.log("done: Fenster öffnen"));
+        fetch("http://192.168.178.61:5000/window/allopen").then(console.log("done: Fenster öffnen"));
   }
-  document.querySelector('.FensterAlleHoch').addEventListener('click', oeffnenFensterAlle); 
+  document.querySelector('.FensterAlleRunter').addEventListener('click', oeffnenFensterAlle); 
 
   function schliessenFensterAlle() {
-        fetch("http://192.168.178.82:5000/window/allclose").then(console.log("done: Fenster schließen"));
+        fetch("http://192.168.178.61:5000/window/allclose").then(console.log("done: Fenster schließen"));
   }
-  document.querySelector('.FensterAlleRunter').addEventListener('click', schliessenFensterAlle);
+  document.querySelector('.FensterAlleHoch').addEventListener('click', schliessenFensterAlle);
 }
 
 //Klicken Navigation
@@ -326,7 +329,7 @@ function ClickHome() {
   var h = document.getElementById('HomeScreen');
   document.getElementsByTagName("main")[0].appendChild(h.content.cloneNode(true));
 
-  fetch("http://192.168.178.82:5000/action/black").then(console.log("done: Fenster schließen"));
+ // fetch("http://192.168.178.61:5000/action/black").then(console.log("done: Fenster schließen"));
 }
 
 document.querySelector('main').addEventListener('click', handleMainClick);
