@@ -96,44 +96,113 @@ def window(action):
     sense = SenseHat()
 #   sense.show_message(request.remote_addr, text_colour=(255, 255, 0), back_colour=(127, 0, 127))
 
-    if action=="up":
+	if action=="leftclose":
 
-                b = (0, 0, 0)
-                r = (255, 0, 0)
+		b = (0, 0, 0)
+		r = (0, 255, 255)
+		g = (0, 255, 0)
 
-                pixels = [
-                        b, b, b, b, b, b, b, b,
-                        b, b, b, r, r, b, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, r, r, r, r, r, r, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b
-                ]
+		pixels = [
+			r, r, r, b, b, b, b, b,
+			r, b, r, r, b, b, b, b,
+			r, b, g, r, r, b, b, b,
+			r, g, b, g, b, r, r, b,
+			r, b, b, b, b, b, b, r,
+			r, b, g, b, b, b, b, r,
+			r, g, b, g, b, b, b, r,
+			r, r, r, r, r, r, r, r
+		]
 
+	elif action=="leftopen":
 
-    elif action=="down":
+		b = (0, 0, 0)
+		r = (0, 255, 0)
+		g = (0, 255, 0)
 
-                b = (0, 0, 0)
-                r = (0, 255, 0)
+		pixels = [
+			b, b, b, b, b, g, b, g,
+			b, b, b, b, b, b, g, b,
+			r, r, r, b, b, b, b, b,
+			r, b, r, r, b, g, b, g,
+			r, b, b, r, r, b, g, b,
+			r, b, b, b, b, r, r, b,
+			r, b, b, b, b, b, b, r,
+			r, r, r, r, r, r, r, r
+		]
 
-                pixels = [
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, r, r, r, r, b, b,
-                        b, r, r, r, r, r, r, b,
-                        b, b, r, r, r, r, b, b,
-                        b, b, b, r, r, b, b, b,
-                        b, b, b, b, b, b, b, b
-                ]
+	elif action=="rightclose":
 
-    sense.set_pixels(pixels)
+		b = (0, 0, 0)
+		r = (0, 255, 255)
+		g = (0, 255, 0)
 
-    return jsonify(
-        status=0
-    )
+		pixels = [
+			b, b, b, b, b, r, r, r,
+			b, b, b, b, r, r, b, r,
+			b, b, b, r, r, g, b, r,
+			b, r, r, b, g, b, g, r,
+			r, b, b, b, b, b, b, r,
+			r, b, b, b, b, g, b, r,
+			r, b, b, b, g, b, g, r,
+			r, r, r, r, r, r, r, r
+		]
+
+	elif action=="rightopen":
+
+		b = (0, 0, 0)
+		r = (0, 255, 0)
+		g = (0, 255, 0)
+
+		pixels = [
+			g, b, g, b, b, g, b, g,
+			b, g, b, b, b, b, g, b,
+			b, b, b, b, b, r, r, r,
+			g, b, g, b, r, r, b, r,
+			b, g, b, r, r, b, b, r,
+			b, r, r, b, b, b, b, r,
+			r, b, b, b, b, b, b, r,
+			r, r, r, r, r, r, r, r
+		]
+
+	elif action=="allclose":
+
+		b = (0, 0, 0)
+		r = (255, 0, 255)
+		g = (255, 255, 255)
+
+		pixels = [
+			b, b, b, b, b, b, b, b,
+			r, r, r, r, r, r, r, r,
+			r, b, b, g, b, b, b, r,
+			r, b, g, b, g, b, b, r,
+			r, b, b, b, b, b, b, r,
+			r, b, b, g, b, b, b, r,
+			r, b, g, b, g, b, b, r,
+			r, r, r, r, r, r, r, r
+		]
+
+	elif action=="allopen":
+
+		b = (0, 0, 0)
+		r = (255, 0, 255)
+		g = (255, 255, 255)
+
+		pixels = [
+			b, b, b, b, g, b, g, b,
+			b, b, b, b, b, g, b, b,
+			b, b, b, b, b, b, b, b,
+			b, b, b, b, g, b, g, b,
+			b, b, b, b, b, g, b, b,
+			r, r, r, r, r, r, r, r,
+			r, b, b, b, b, b, b, r,
+			r, r, r, r, r, r, r, r
+		]
+
+	sense.set_pixels(pixels)
+
+	return jsonify(
+		status = 0
+	)
 
 @app.route('/music')
 def music():
