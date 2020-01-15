@@ -26,7 +26,6 @@ main {
     padding: 50px 15% 50px 15%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
@@ -80,9 +79,9 @@ button.Navigation {
 
 div.GridAutoDaten{
     display: grid;
-    grid-template-areas: "AutoDatenCell_1 AutoDatenCell_2" "AutoDatenCell_3 AutoDatenCell_3";
+    grid-template-areas: "AutoDatenCell_1 AutoDatenCell_2" "AutoDatenCell_3 AutoDatenCell_4" "AutoDatenCell_5 AutoDatenCell_6";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 25%;
+    grid-template-rows: 40% 10% 10%;
     align-items: center;
     justify-items: center;
 }
@@ -92,38 +91,64 @@ img.GeschwindigkeitAuto {
 img.VerbrauchAuto {
     grid-area: AutoDatenCell_2;
 }
+div.TitelGeschwindigkeit {
+    grid-area: AutoDatenCell_3;
+}
+div.TitelVerbrauch {
+    grid-area: AutoDatenCell_4;
+}
+div.WertGeschwindigkeit {
+    grid-area: AutoDatenCell_5;
+}
+div.WertVerbrauch {
+    grid-area: AutoDatenCell_6;
+}
 
 
 div.GridWetterDaten{
     display: grid;
-    grid-template-areas: "WetterDatenCell_1 WetterDatenCell_2 WetterDatenCell_3" "WetterDatenCell_4 WetterDatenCell_5 WetterDatenCell_6";
+    grid-template-areas: "WetterDatenCell_1 WetterDatenCell_2 WetterDatenCell_3" "WetterDatenCell_4 WetterDatenCell_5 WetterDatenCell_6" "WetterDatenCell_7 WetterDatenCell_8 WetterDatenCell_9";
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 25%;
+    grid-template-rows: 40% 10% 10%;
     align-items: center;
     justify-items: center;
 }
-div.templateStatusdaten {
-    grid-area: ;
+div.TitelDruck {
+    grid-area: WetterDatenCell_4;
+}
+div.TitelTemperatur {
+    grid-area: WetterDatenCell_5;
+}
+div.TitelLuftfeuchte {
+    grid-area: WetterDatenCell_6;
+}
+div.WertDruck {
+    grid-area: WetterDatenCell_7;
+}
+div.WertTemperatur {
+    grid-area: WetterDatenCell_8;
+}
+div.WertLuftfeuchte {
+    grid-area: WetterDatenCell_9;
 }
 
 
 div.GridMusik{
     display: grid;
-    grid-template-areas: "MusikCell_1 MusikCell_1" "MusikCell_2 MusikCell_2" "MusikCell_3 MusikCell_4";
+    grid-template-areas: "MusikCell_1 MusikCell_1" "MusikCell_3 MusikCell_3" "MusikCell_3 MusikCell_3" "MusikCell_5 MusikCell_6";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 30% 1fr 1fr 40%;
     align-items:center;
     justify-items:center;
-    grid-area: MusikCell_1;
-}
-div.MusikDaten{
-    grid-area: MusikCell_2;
 }
 button.Play {
-    grid-area: MusikCell_3;
+    grid-area: MusikCell_5;
 }
 button.Pause {
-    grid-area: MusikCell_4;
+    grid-area: MusikCell_6;
+}
+div.TitelMusik {
+    grid-area: MusikCell_1;
 }
 
 

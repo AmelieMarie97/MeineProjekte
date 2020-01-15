@@ -1,0 +1,15 @@
+in Konsole fetch aktivieren:
+ssh pi@192.168.0.82
+ls 
+cd python
+ls 
+python3 services.py
+
+in Phython Services Datei ändern:
+- Unterfenster Konsole öffnen
+- ssh pi@192.168.0.82
+- ls 
+- cd python
+- ls 
+- nano services.py
+--> dann öffnet sich die Datei und man kann bearbeiten

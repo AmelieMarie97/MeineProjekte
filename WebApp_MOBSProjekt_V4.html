@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <button id="home" class"home"> Home </button>
+        <button id="homeID" class="home"> Home </button>
         <div class="Titel"> Car Entertainment System</div>
         <img class="LogoTesla" src="Bilder/TeslaLogo.png" height=auto></img>
     </header>
@@ -76,12 +76,14 @@
             <button>
                 <img src="Bilder/Verbrauch.png" class="VerbrauchAuto" width=30%></img>
             </button>
-            <div class=WertGeschwindigkeit>
+            <div class=TitelGeschwindigkeit>
                 Geschwindigkeit:
             </div>
-            <div class=WertVerbrauch>
+            <div class=TitelVerbrauch>
                 Verbrauch:
             </div>
+            <div class=WertGeschwindigkeit> </div>
+            <div class=WertVerbrauch> </div>
         </div>
     </template>
 
@@ -96,21 +98,24 @@
             <button>
                 <img src="Bilder/Luftfeuchtigkeit.png" class="BildLuftfeuchte" width=50%></img>
             </button>
-            <div class=WertDruck>
+            <div class=TitelDruck>
                 Druck:
             </div>
-            <div class=WertTemperatur>
+            <div class=TitelTemperatur>
                 Temperatur:
             </div>
-            <div class=WertLuftfeuchte>
+            <div class=TitelLuftfeuchte>
                 Luftfeuchtigkeit:
             </div>
+            <div class=WertDruck> </div>
+            <div class=WertTemperatur> </div>
+            <div class=WertLuftfeuchte> </div>
         </div>
     </template>
 
     <template id="MusikScreen">
         <div class="GridMusik" id="ContainerMusik">
-            Playlist:
+            <div class="TitelMusik">Playlist: </div>
             <div class="MusikDaten"> </div>
             <div class="MusikDaten"> </div>
             <div class="MusikDaten"> </div>
@@ -164,7 +169,7 @@
     <template id="NaviScreen">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d84278.02477972793!2d9.623368640950268!3d48.69232429391882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sde!2sde!4v1576085616097!5m2!1sde!2sde"
-            width="1500" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            width="1000" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
     </template>
 
 </body>
