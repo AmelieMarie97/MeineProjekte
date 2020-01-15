@@ -74,14 +74,14 @@ function handleMainClick(event) {
             ClickStatusAuto();
             IntervallAuto = setInterval(function () {
                 ClickStatusAuto();
-            }, 200000);
+            }, 2000);
             break;
 
         case 'StatusWetterID':
             ClickStatusWetter();
             IntervallWetter = setInterval(function () {
                 ClickStatusWetter();
-            }, 200000);
+            }, 2000);
             break;
 
         case 'MusikID':
